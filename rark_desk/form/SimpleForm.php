@@ -13,7 +13,7 @@ class SimpleForm extends BaseForm{
 	}
 
 	final public function onSubmit(Player $player, $data):bool{
-		if(is_int($data)) return false;
+		if(!is_int($data)) return false;
 		($this->func)();
 		return true;
 	}
