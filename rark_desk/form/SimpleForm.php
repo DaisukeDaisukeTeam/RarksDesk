@@ -2,6 +2,12 @@
 
 declare(strict_types = 1);
 
+namespace rark_desk\form;
+
+use pocketmine\{
+	Player
+};
+
 
 class SimpleForm extends BaseForm{
 
@@ -12,9 +18,13 @@ class SimpleForm extends BaseForm{
 		$this->addElement(...$buttons);
 	}
 
-	final public function onSubmit(Player $player, $data):bool{
-		if(!is_int($data)) return false;
-		($this->func)();
-		return true;
+	final public function onSubmit(Player $player, $data):void{
+		if(!is_int($data)){
+			if($this->getCancelled() !== null) $this->getCancelled()($player);
+			return;
+		}
+		if(!($result = isset($this->getElements()[$data]))) throw new \ErrorException('エレメントが破損してます');
+		if($this->getSubmit() !== null)$this->getSubmit()($player, $data);
+		if($result) $this->getElements()[$data]($player, $data);
 	}
 }

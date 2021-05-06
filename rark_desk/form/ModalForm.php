@@ -2,6 +2,12 @@
 
 declare(strict_types = 1);
 
+namespace rark_desk\form;
+
+use pocketmine\{
+	Player
+};
+
 
 class ModalForm extends BaseForm{
 
@@ -14,7 +20,18 @@ class ModalForm extends BaseForm{
 
 	final public function onSubmit(Player $player, $data):bool{
 		if(!is_bool($data)) return false;
-		($this->func)();
+		if($this->func !== null)($this->func)($player, $data);
 		return true;
+	}
+
+	final public function handleResponce(Player $player, $data):void{
+		if(!is_bool($data)){
+			if($this->getCendelled() !== null) $this->getCancelled()($player);
+			return;
+		}
+		if(!isset($elements[0]) or !isset($elements[1])) throw new \ErrorException('エレメントが破損してます');
+		if($this->getSubmit() !== null) $this->getSibmit()($player, $data);
+		$elements = $this->getElements();
+		$data? $elements[0]: $elements[1];
 	}
 }

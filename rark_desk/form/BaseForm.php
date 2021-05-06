@@ -2,6 +2,13 @@
 
 declare(strict_types = 1);
 
+namespace rark_desk\form;
+
+use pocketmine\{
+	Player,
+	form\Form
+};
+
 
 abstract class BaseForm implements Form{
 
@@ -11,12 +18,12 @@ abstract class BaseForm implements Form{
 	private array $content = [];
 	private array $elements = [];
 	/** @var callable|null */
-	private $func;
+	private $submit;
+	private $cancelled;
 
-	abstract protected function onSubmit(Player $player, $data):bool;
-
-	public function __construct(?callable $func = null){
-		$this->func = $func;
+	public function __construct(?callable $submit = null, ?callable $cancelled = null){
+		$this->func = $submit;
+		$this->cancelled = $cancelled;
 	}
 
 	final protected function addElement(Element ...$elements):void{
@@ -36,14 +43,15 @@ abstract class BaseForm implements Form{
 		);
 	}
 
-	final public function handleResponce(Player $player, $data):void{
-		if($data === null){
-			$this->onCancelled($player);
-			return;
-		}
-		if(!$this->onSubmit($player, $data)) return;
-		foreach($this->elements as $element){
-			$element->onSubmit($player, $data);
-		}
+	final public function getSibmit():?callable{
+		return $this->submit;
+	}
+
+	final public function getCendelled():?callable{
+		return $this->cancelled;
+	}
+
+	final public function getElements():array{
+		return $this->elements;
 	}
 }
