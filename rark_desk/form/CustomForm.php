@@ -11,6 +11,8 @@ use pocketmine\{
 
 class CustomForm extends BaseForm{
 
+	public const FORM_TYPE = 'custom_form';
+
 	public function addDropDown(DropDown $dropdown):void{
 		$this->addElement($dropdown);
 	}
@@ -40,8 +42,8 @@ class CustomForm extends BaseForm{
 			if($this->getCancelled() !== null) $this->getCancelled()($player);
 			return;
 		}
-		if(count(($this->getElements()) < $data or $data < 0)) throw new \ErrorException('エレメントが破損してます');
-		if($this->getSibmit() === null) !$this->getSubmit()($player, $data);
+		if(count(($this->getElements()) !== count($data)) throw new \ErrorException('エレメントが破損してます');
+		if($this->getSibmit() !== null) !$this->getSubmit()($player, $data);
 		$i = 0;
 
 		foreach($this->getElements() as $element){

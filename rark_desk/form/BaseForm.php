@@ -33,7 +33,7 @@ abstract class BaseForm implements Form{
 		}
 	}
 
-	final public function jsonSerialize():array{
+	final public function jsonSerialize(){
 		return array_merge(
 			[
 				'type' => static::FORM_TYPE,
