@@ -2,6 +2,9 @@
 
 declare(strict_types = 1);
 
+namespace rark_desk\form\element;
+
+
 class StepSlider extends Element{
 
 	private string $text;

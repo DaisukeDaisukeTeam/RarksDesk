@@ -2,6 +2,9 @@
 
 declare(strict_types = 1);
 
+namespace rark_desk\form\element;
+
+
 class Input extends Element{
 
 	private string $text;

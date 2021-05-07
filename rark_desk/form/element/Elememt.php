@@ -2,6 +2,13 @@
 
 declare(strict_types = 1);
 
+namespace rark_desk\form\element;
+
+use pocketmine\{
+	Player
+};
+
+
 abstract class Element implements \JsonSerializable{
 	/** @var callable */
 	private $submit;

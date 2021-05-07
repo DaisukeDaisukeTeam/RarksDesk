@@ -2,6 +2,8 @@
 
 declare(strict_types = 1);
 
+namespace rark_desk\form\element;
+
 
 class Button extends Element{
 

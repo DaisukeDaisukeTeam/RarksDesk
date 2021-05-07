@@ -2,6 +2,9 @@
 
 declare(strict_types = 1);
 
+namespace rark_desk\form\element;
+
+
 class ButtonImage extends Element{
 
 	private string $type;

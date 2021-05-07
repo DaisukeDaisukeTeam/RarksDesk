@@ -8,6 +8,9 @@ use pocketmine\{
 	Player,
 	form\Form
 };
+use rark_desk\form\element{
+	Element
+};
 
 
 abstract class BaseForm implements Form{

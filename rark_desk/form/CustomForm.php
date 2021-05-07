@@ -7,6 +7,14 @@ namespace rark_desk\form;
 use pocketmine\{
 	Player
 };
+use rark_desk\form\element{
+	DropDown,
+	Input,
+	Label,
+	Slider,
+	StepSlider,
+	Toggle
+};
 
 
 class CustomForm extends BaseForm{
