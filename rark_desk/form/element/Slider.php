@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace rark_desk\form\element;
+namespace rarksdesk\form\element;
 
 
 class Slider extends Element{

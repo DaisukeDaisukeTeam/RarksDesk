@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace rark_desk\scoreboard;
+namespace rarksdesk\scoreboard;
 
 use pocketmine\Player;
 ;
