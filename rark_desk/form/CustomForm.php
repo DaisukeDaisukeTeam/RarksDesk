@@ -4,9 +4,7 @@ declare(strict_types = 1);
 
 namespace rark_desk\form;
 
-use pocketmine\{
-	Player
-};
+use pocketmine\Player;
 use rark_desk\form\element{
 	DropDown,
 	Input,

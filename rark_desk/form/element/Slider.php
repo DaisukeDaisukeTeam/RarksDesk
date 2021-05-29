@@ -20,7 +20,7 @@ class Slider extends Element{
 		$this->default = $default;
 	}
 
-	final public function jsonSerialize(){
+	public function jsonSerialize(){
 		return [
 			'type' => 'slider',
 			'text' => $this->text,

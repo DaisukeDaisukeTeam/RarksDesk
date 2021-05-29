@@ -17,7 +17,7 @@ abstract class Element implements \JsonSerializable{
 		$this->submit = $submit;
 	}
 
-	final public function onSubmit(Player $player, $data):void{
+	public function onSubmit(Player $player, $data):void{
 		if($this->submit !== null)($this->submit)($player, $data);
 	}
 }

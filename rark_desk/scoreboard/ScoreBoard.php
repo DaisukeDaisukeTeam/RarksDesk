@@ -4,11 +4,12 @@ declare(strict_types = 1);
 
 namespace rark_desk\scoreboard;
 
-use pocketmine\{
-	Player,
-	network\mcpe\protocol\SetDisplayObjectivePacket,
-	network\mcpe\protocol\SetScorePacket,
-	network\mcpe\protocol\types\ScorePacketEntry
+use pocketmine\Player;
+;
+use pocketmine\network\mcpe\protocol\{
+	SetDisplayObjectivePacket,
+	SetScorePacket,
+	ScorePacketEntry
 };
 
 

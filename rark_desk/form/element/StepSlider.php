@@ -17,7 +17,7 @@ class StepSlider extends Element{
 		$this->steps = $steps;
 	}
 
-	final public function jsonSerialize(){
+	public function jsonSerialize(){
 		return [
 			'type' => 'step_slider',
 			'text' => $this->text,

@@ -14,7 +14,7 @@ class Label extends Element{
 		parent::__construct();
 	}
 
-	final public function jsonSerialize(){
+	public function jsonSerialize(){
 		return [
 			'type' => 'label',
 			'text' => $this->text

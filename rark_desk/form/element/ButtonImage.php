@@ -15,7 +15,7 @@ class ButtonImage extends Element{
 		$this->data = $data;
 	}
 
-	final public function jsonSerialize(){
+	public function jsonSerialize(){
 		return[
 			'image' => [
 				'type' => $this->type,

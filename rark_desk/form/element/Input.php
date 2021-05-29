@@ -18,7 +18,7 @@ class Input extends Element{
 		parent::__construct($submit);
 	}
 
-	final public function jsonSerialize(){
+	public function jsonSerialize(){
 		return [
 			'type' => 'input',
 			'text' => $this->text,

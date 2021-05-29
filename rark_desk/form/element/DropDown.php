@@ -19,7 +19,7 @@ class DropDown extends Element{
 		parent::__construct($submit);
 	}
 
-	final public function jsonSerialize(){
+	public function jsonSerialize(){
 		return [
 			'type' => 'dropdown',
 			'text' => $this->text,
