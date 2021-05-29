@@ -24,10 +24,10 @@ final class TimeThread extends Thread{
 	}
 
 	public function run():void{
-		if($this->isKilled) return;
-		$this->is_countdown? --$this->count:++$this->count;
-		usleep($this->run_time);
-		$this->run();
+		while(!$this->isKilled){
+			$this->is_countdown ? --$this->count : ++$this->count;
+			usleep($this->run_time);
+		}
 	}
 
 	public function getTime():int{
